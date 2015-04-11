@@ -90,9 +90,11 @@ def main(args):
                     words.append(word)
 
     if tokenize:
+        # A better version of this would not try to assign an ACTION
+        # to constants (words that follow PUSH or SKIP instructions)
         for word in words:
             value = scrabble(word)
-            print "'%s' = %s (%s)" % (word, value, ACTION.get(value, '(none)'))
+            print "[%s:%s/%s]" % (value, ACTION.get(value, 'NOP'), word)
         sys.exit(0)
 
     words.append('FOXY')  # stop if you get to the end

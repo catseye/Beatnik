@@ -40,17 +40,15 @@ as Catatonic Porpoise's interpreter.  Could use some test cases, though.
 to standard error as the program is run.
 
 `beatnik.py` also takes a `--tokenize` flag, which prevents the program
-from being run, and instead dumps a readable representation of the program
-to standard output.
+from being run, and instead dumps a representation of the program in
+Wottasquare to standard output.  (It is essentially a Beatnik-to-Wottasquare
+compiler.)
 
-Thus, the following idiom can be used to find out what Scrabble score, and
-thus what Beatnik instruction, a particular word has.
+The following idiom can be used to find out what Scrabble score, and thus what
+Beatnik instruction, a particular word has.
 
     $ beatnik.py --tokenize --eval 'Twenty'
-    'Twenty' = 12 (DUP)
-
-TODO: the dump should really be in Wottasquare format, making this a
-Beatnik-to-Wottasquare compiler.
+    [12:DUP/Twenty]
 
 wottasquare.py
 --------------
