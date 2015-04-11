@@ -47,8 +47,8 @@ dictionary = {
 }
 
 
-def load_dictionary():
-    with open('/usr/share/dict/words') as f:
+def load_dictionary(filename):
+    with open(filename) as f:
         for line in f:
             for word in re.findall(r'[A-Za-z]+', line):
                 if len(word) <= 2 or word[0].isupper():
@@ -63,9 +63,12 @@ def pick_word(num):
 def main(args):
     find_text = None
     find_amount = 20
+    dictionary_filename = '/usr/share/dict/words'
     while args and args[0].startswith('--'):
         switch = args.pop(0)
-        if switch == '--find':
+        if switch == '--dictionary':
+            dictionary_filename = args.pop(0)
+        elif switch == '--find':
             find_text = args.pop(0)
         elif switch == '--find-all':
             find_text = args.pop(0)
@@ -73,7 +76,7 @@ def main(args):
         else:
             raise KeyError("Unknown command-line option '%s'" % switch)
 
-    load_dictionary()
+    load_dictionary(dictionary_filename)
 
     if find_text:
         value = None

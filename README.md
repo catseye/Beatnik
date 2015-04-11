@@ -55,7 +55,7 @@ wottasquare.py
 
 Basic usage:
 
-    wottasquare.py filename.wottasquare
+    wottasquare.py [--dictionary filename] filename.wottasquare
 
 Reads the Wottasquare program from the given file and compiles it to an
 equivalent Beatnik program on standard output.
@@ -69,8 +69,10 @@ Thus, the Wottasquare token `[5]` could be translated to any word which has
 a Scrabble score of 5, such as `slug`, for use in Beatnik.
 
 By default, `wottasquare.py` looks in `/usr/share/dict/words` for
-words to use when translating Wottasquare to Beatnik.  TODO: make this
-dictionary file configurable.
+words to use when translating Wottasquare to Beatnik.  A different dictionary
+file can be specified with the `--dictionary` command-line argument.  Note
+that the dictionary file is parsed like a Beatnik source file would be;
+punctuation is ignored (and treated as word seperator), etc.
 
 There are two flags which trigger special behaviour:
 
