@@ -63,6 +63,21 @@ def debug(s, *args):
     sys.stderr.write("\n")
 
 
+class Stack(object):
+    def __init__(self):
+        self._stack = []
+
+    def push(self, value):
+        self._stack.append(value % 256)
+
+    def append(self, value):
+        """for backwards compatibility"""
+        self.push(value)
+
+    def pop(self):
+        return self._stack.pop()
+
+
 def main(args):
     global DEBUG
     tokenize = False
@@ -99,7 +114,7 @@ def main(args):
 
     words.append('FOXY')  # stop if you get to the end
 
-    stack = []
+    stack = Stack()
     pc = 0
     done = False
 
@@ -151,14 +166,12 @@ def main(args):
                 pc += dist
         elif value == 15:
             a = stack.pop()
-            pc += 1
-            dist = scrabble(words[pc])
+            dist = scrabble(words[pc + 1])
             if a == 0:
                 pc -= dist
         elif value == 16:
             a = stack.pop()
-            pc += 1
-            dist = scrabble(words[pc])
+            dist = scrabble(words[pc + 1])
             if a != 0:
                 pc -= dist
         elif value == 17:

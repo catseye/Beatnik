@@ -27,14 +27,9 @@ though the author claims there is an error in it and won't divulge where.
 Don't expect this interpreter to work on the example programs supplied with
 the specification.
 
-There are two bugs/shortcomings that should really be fixed someday:
-
-*   Integers on the stack can be any value supported by Python, rather
-    than limited to the range 0-255.
-*   The instructions that skip back, probably skip back the wrong amount.
-
-Other than those two things, this interpreter seems to have the same behaviour
-as Catatonic Porpoise's interpreter.  Could use some test cases, though.
+This interpreter seems to have the same behaviour as
+[Catatonic Porpoise's Beatnik interpreter][].  This repository could stand
+to contain some test cases, though.
 
 `beatnik.py` also takes a `--debug` flag, which dumps some internal state
 to standard error as the program is run.
@@ -113,3 +108,4 @@ UNLICENSE in this directory for more information.
 
 [Beatnik]: http://esolangs.org/wiki/Beatnik
 [wimpmode]: http://esolangs.org/wiki/Wimpmode
+[Catatonic Porpoise's Beatnik interpreter]: http://esoteric.voxelperfect.net/files/beatnik/impl/BEATNIK.c
