@@ -109,7 +109,7 @@ def main(args):
         # to constants (words that follow PUSH or SKIP instructions)
         for word in words:
             value = scrabble(word)
-            print "[%s:%s/%s]" % (value, ACTION.get(value, 'NOP'), word)
+            print ("[%s:%s/%s]" % (value, ACTION.get(value, 'NOP'), word))
         sys.exit(0)
 
     words.append('FOXY')  # stop if you get to the end
